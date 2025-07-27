@@ -1,0 +1,27 @@
+.container {
+  position: absolute;
+  top: 28px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 91px;
+}
+
+.your-name {
+  color: #4f4f4f;
+}
+
+.login-btn {
+  width: 24px;
+  height: 24px;
+  background-image: url('../../assets/login.svg');
+  box-shadow: 2px 2px 4px 0px #2f80ed40;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  filter: brightness(1.11);
+  box-shadow: none;
+}
