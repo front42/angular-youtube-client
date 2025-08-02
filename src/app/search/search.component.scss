@@ -4,8 +4,7 @@
   align-items: center;
   width: 570px;
   height: 50px;
-
-  margin: 0 auto;
+  height: 80px;
 }
 
 .logo {
@@ -36,7 +35,7 @@
 
 .btn {
   height: 24px;
-  box-shadow: 2px 0px 4px 0px #2f80ed;
+  box-shadow: 2px 0 4px 0 #2f80ed;
   cursor: pointer;
 }
 
@@ -54,21 +53,47 @@
 
 .search-settings {
   width: 24px;
-  background-image: url(../../assets/search-settings.svg);
+  background-image: url('../../assets/search-settings.svg');
   border-radius: 5px;
 }
 
-@media screen and (max-width: 939px) {
-  .container {
-    width: 500px;
-  }
-
-  .search-field {
-    width: 326px;
-  }
+.sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 314px;
+  height: 50px;
 }
 
-@media screen and (max-width: 828px) {
+.sort-menu {
+  color: #929292;
+}
+
+.sort-by-btn {
+  color: #2f80ed;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.sort-by-btn:active {
+  text-shadow: 0 0 2px #2f80ed;
+}
+
+.active {
+  text-decoration: underline;
+  pointer-events: none;
+}
+
+.sort input {
+  margin-left: 10px;
+  padding: 0 5px;
+  width: 149px;
+  height: 13px;
+  color: #929292;
+}
+
+@media screen and (max-width: 903px) {
   .container {
     width: 400px;
   }
@@ -78,7 +103,7 @@
   }
 }
 
-@media screen and (max-width: 777px) {
+@media screen and (max-width: 672px) {
   .container {
     width: 344px;
   }
@@ -94,6 +119,6 @@
   }
 
   .search-btn {
-    width: 50px;
+    width: 55px;
   }
 }

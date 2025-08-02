@@ -4,5 +4,16 @@
     <input class="search-field" placeholder="What do you want to find out?" />
     <button class="btn search-btn" matRipple>search</button>
   </div>
-  <button class="btn search-settings" matRipple></button>
+  <button class="btn search-settings" matRipple (click)="settings = !settings"></button>
 </div>
+@if (settings) {
+  <div class="sort">
+    <span class="sort-menu">Sort by:</span>
+    <button class="sort-by-btn" [class.active]="sort === 'date'" (click)="sort = 'date'">date</button>
+    <button class="sort-by-btn" [class.active]="sort === 'views'" (click)="sort = 'views'">views</button>
+    <div>
+      <button class="sort-by-btn" [class.active]="sort === 'words'" (click)="sort = 'words'">words</button>
+      <input type="text" />
+    </div>
+  </div>
+}

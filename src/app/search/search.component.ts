@@ -8,4 +8,7 @@ import { MatRippleModule } from '@angular/material/core';
   styleUrl: './search.component.scss',
   imports: [MatRippleModule],
 })
-export class SearchComponent {}
+export class SearchComponent {
+  protected settings: boolean = false;
+  protected sort!: 'date' | 'views' | 'words';
+}
