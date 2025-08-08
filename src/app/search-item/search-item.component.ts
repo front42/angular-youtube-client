@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-
 import { MatRippleModule } from '@angular/material/core';
+
+import { IItem } from '../interfaces';
 
 @Component({
   selector: 'app-search-item',
@@ -9,5 +10,5 @@ import { MatRippleModule } from '@angular/material/core';
   imports: [MatRippleModule],
 })
 export class SearchItemComponent {
-  @Input() public itemNumber!: number;
+  @Input() public item!: IItem;
 }

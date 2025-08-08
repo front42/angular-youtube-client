@@ -21,6 +21,11 @@
   filter: brightness(1);
 }
 
+input {
+  appearance: none;
+  border-radius: 0;
+}
+
 .search-field {
   width: 396px;
   height: 24px;
@@ -66,7 +71,7 @@
   height: 50px;
 }
 
-.sort-menu {
+.sort span {
   color: #929292;
 }
 
