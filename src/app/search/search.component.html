@@ -9,11 +9,11 @@
 @if (settings) {
   <div class="sort">
     <span>Sort by:</span>
-    <button class="sort-by-btn" [class.active]="sort === 'date'" (click)="sort = 'date'">date</button>
-    <button class="sort-by-btn" [class.active]="sort === 'views'" (click)="sort = 'views'">views</button>
+    <button class="sort-by-btn" [class.active]="sort === 'date'" (click)="sortByDate()">date</button>
+    <button class="sort-by-btn" [class.active]="sort === 'views'" (click)="sortByViews()">views</button>
     <div>
-      <button class="sort-by-btn" [class.active]="sort === 'words'" (click)="sort = 'words'">words</button>
-      <input type="text" />
+      <button class="sort-by-btn" [class.active]="sort === 'words'" (click)="sortByWords()">words</button>
+      <input #sortInput (focus)="sortByWords()" />
     </div>
   </div>
 }

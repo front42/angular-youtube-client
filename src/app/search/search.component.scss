@@ -22,6 +22,7 @@
 }
 
 input {
+  padding: 0 6px;
   appearance: none;
   border-radius: 0;
 }
@@ -29,7 +30,6 @@ input {
 .search-field {
   width: 396px;
   height: 24px;
-  padding: 0 6px;
   color: #333333;
   background: #efefef;
 }
@@ -87,12 +87,11 @@ input {
 
 .active {
   text-decoration: underline;
-  pointer-events: none;
+  // pointer-events: none;
 }
 
 .sort input {
   margin-left: 10px;
-  padding: 0 5px;
   width: 149px;
   height: 13px;
   color: #929292;
