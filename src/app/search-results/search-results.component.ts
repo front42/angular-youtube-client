@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect } from '@angular/core';
 
 import { SearchItemComponent } from '../search-item/search-item.component';
 import { DataService } from '../data.service';
 import { IItem } from '../interfaces';
+import { searchSignal } from '../search/search.component';
 
 @Component({
   selector: 'app-search-results',
@@ -10,14 +11,20 @@ import { IItem } from '../interfaces';
   styleUrl: './search-results.component.scss',
   imports: [SearchItemComponent],
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent {
   protected items: IItem[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    effect(() => {
+      if (searchSignal().trim()) {
+        this.getItems(searchSignal());
+      } else this.items = [];
+    });
+  }
 
-  ngOnInit(): void {
+  protected getItems(search: string): void {
     this.dataService.getItems().subscribe((items) => {
-      this.items = items;
+      this.items = items.filter((item) => item.snippet.title.toLowerCase().includes(search.toLowerCase()));
     });
   }
 }

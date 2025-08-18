@@ -23,4 +23,9 @@ export class DataService {
       }),
     );
   }
+
+  // TODO filter-pipe
+  // public sortByDate(a: IItem, b: IItem): number {
+  //   return a.snippet.publishedAt < b.snippet.publishedAt ? 1 : -1;
+  // }
 }

@@ -1,6 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, WritableSignal, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatRippleModule } from '@angular/material/core';
+
+export const searchSignal: WritableSignal<string> = signal('');
 
 @Component({
   selector: 'app-search',
@@ -14,6 +16,10 @@ export class SearchComponent {
   @ViewChild('sortInput') protected sortInput!: ElementRef;
 
   constructor(private router: Router) {}
+
+  protected getItems(searchFieldValue: string): void {
+    searchSignal.set(searchFieldValue);
+  }
 
   protected sortByDate(): void {
     this.sort = 'date';

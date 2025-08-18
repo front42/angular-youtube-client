@@ -7,6 +7,20 @@
   max-width: 1200px;
 }
 
+.no-items {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 600;
+  color: #2f80ed;
+}
+
 @media screen and (max-width: 1199px) {
   .container {
     max-width: 904px;
