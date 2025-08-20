@@ -1,9 +1,11 @@
-import { Component, effect } from '@angular/core';
+import { Component, WritableSignal, effect, signal } from '@angular/core';
 
 import { SearchItemComponent } from '../search-item/search-item.component';
 import { DataService } from '../data.service';
 import { IItem } from '../interfaces';
 import { searchSignal } from '../search/search.component';
+
+export const itemsLengthSignal: WritableSignal<number> = signal(0);
 
 @Component({
   selector: 'app-search-results',
@@ -18,13 +20,17 @@ export class SearchResultsComponent {
     effect(() => {
       if (searchSignal().trim()) {
         this.getItems(searchSignal());
-      } else this.items = [];
+      } else {
+        this.items.length = 0;
+        itemsLengthSignal.set(0);
+      }
     });
   }
 
   protected getItems(search: string): void {
     this.dataService.getItems().subscribe((items) => {
       this.items = items.filter((item) => item.snippet.title.toLowerCase().includes(search.toLowerCase()));
+      itemsLengthSignal.set(this.items.length);
     });
   }
 }

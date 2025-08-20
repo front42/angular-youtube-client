@@ -4,9 +4,9 @@
     <input #searchField class="search-field" placeholder="What do you want to find out?" />
     <button class="btn search-btn" matRipple (click)="getItems(searchField.value)">search</button>
   </div>
-  <button class="btn search-settings" matRipple (click)="settings = !settings"></button>
+  <button class="btn search-settings" [class.disabled]="!itemsLength" matRipple (click)="toggleSettings()"></button>
 </div>
-@if (settings) {
+@if (settings && itemsLength) {
   <div class="sort">
     <span>Sort by:</span>
     <button class="sort-by-btn" [class.active]="sort === 'date'" (click)="sortByDate()">date</button>

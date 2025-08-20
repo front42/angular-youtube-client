@@ -61,6 +61,10 @@ input {
   border-radius: 5px;
 }
 
+.disabled {
+  pointer-events: none;
+}
+
 .sort {
   display: flex;
   justify-content: space-between;
@@ -86,7 +90,6 @@ input {
 
 .active {
   text-decoration: underline;
-  // pointer-events: none;
 }
 
 .sort input {

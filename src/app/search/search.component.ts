@@ -2,6 +2,8 @@ import { Component, ElementRef, ViewChild, WritableSignal, signal } from '@angul
 import { Router } from '@angular/router';
 import { MatRippleModule } from '@angular/material/core';
 
+import { itemsLengthSignal } from '../search-results/search-results.component';
+
 export const searchSignal: WritableSignal<string> = signal('');
 
 @Component({
@@ -12,10 +14,19 @@ export const searchSignal: WritableSignal<string> = signal('');
 })
 export class SearchComponent {
   protected settings: boolean = false;
-  protected sort!: 'date' | 'views' | 'words';
+  protected sort: '' | 'date' | 'views' | 'words' = '';
   @ViewChild('sortInput') protected sortInput!: ElementRef;
 
   constructor(private router: Router) {}
+
+  protected get itemsLength(): number {
+    return itemsLengthSignal();
+  }
+
+  protected toggleSettings(): void {
+    this.settings = !this.settings;
+    this.sort = '';
+  }
 
   protected getItems(searchFieldValue: string): void {
     searchSignal.set(searchFieldValue);
