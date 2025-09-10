@@ -1,5 +1,5 @@
 <div class="container">
-  @for (item of items; track $index) {
+  @for (item of items | filterByWords: filterQuery; track item.id) {
     <app-search-item [item]="item"></app-search-item>
   } @empty {
     <h1 class="no-items">Seek and you'll find</h1>

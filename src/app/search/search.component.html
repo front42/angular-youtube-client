@@ -1,19 +1,19 @@
 <div class="container">
   <img src="assets/logo.png" class="logo" alt="YouTube Client logo" (click)="goMain()" />
   <div>
-    <input #searchField class="search-field" placeholder="What do you want to find out?" />
-    <button class="btn search-btn" matRipple (click)="getItems(searchField.value)">search</button>
+    <input class="search-field" placeholder="What do you want to find out?" [(ngModel)]="searchInputValue" />
+    <button class="btn search-btn" matRipple (click)="getItems()">search</button>
   </div>
-  <button class="btn search-settings" [class.disabled]="!itemsLength" matRipple (click)="toggleSettings()"></button>
+  <button class="btn toggle-settings" [class.disabled]="!itemsLength" matRipple (click)="toggleSettings()"></button>
 </div>
 @if (settings && itemsLength) {
-  <div class="sort">
+  <div class="search-settings">
     <span>Sort by:</span>
-    <button class="sort-by-btn" [class.active]="sort === 'date'" (click)="sortByDate()">date</button>
-    <button class="sort-by-btn" [class.active]="sort === 'views'" (click)="sortByViews()">views</button>
+    <button class="sort-by-btn" [class.active]="sortBy === 'date'" (click)="sortItems('date')">date</button>
+    <button class="sort-by-btn" [class.active]="sortBy === 'views'" (click)="sortItems('views')">views</button>
     <div>
-      <button class="sort-by-btn" [class.active]="sort === 'words'" (click)="sortByWords()">words</button>
-      <input #sortInput (focus)="sortByWords()" />
+      <span>Filter by:</span>
+      <input #filterInput placeholder="item tags" (input)="filterItems(filterInput.value)" />
     </div>
   </div>
 }

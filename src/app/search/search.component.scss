@@ -55,7 +55,7 @@ input {
   border-bottom-right-radius: 4px;
 }
 
-.search-settings {
+.toggle-settings {
   width: 24px;
   background-image: url('../../assets/search-settings.svg');
   border-radius: 5px;
@@ -65,7 +65,7 @@ input {
   pointer-events: none;
 }
 
-.sort {
+.search-settings {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,7 +74,7 @@ input {
   height: 50px;
 }
 
-.sort span {
+.search-settings span {
   color: #929292;
 }
 
@@ -92,10 +92,14 @@ input {
   text-decoration: underline;
 }
 
-.sort input {
-  margin-left: 10px;
+.search-settings input {
+  margin-left: 3px;
   width: 149px;
-  height: 13px;
+  height: 14px;
+  color: #929292;
+}
+
+.search-settings input::placeholder {
   color: #929292;
 }
 

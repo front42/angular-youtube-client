@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 import { IItem, IResponse } from './interfaces';
 
@@ -19,13 +19,8 @@ export class DataService {
       catchError((error) => {
         this.errorMessage = error.message;
         console.log('Error:', this.errorMessage);
-        return [];
+        return of([]);
       }),
     );
   }
-
-  // TODO filter-pipe
-  // public sortByDate(a: IItem, b: IItem): number {
-  //   return a.snippet.publishedAt < b.snippet.publishedAt ? 1 : -1;
-  // }
 }

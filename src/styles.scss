@@ -21,3 +21,9 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+
+@media screen and (max-width: 580px) {
+  body {
+    min-height: calc(100vh + 1px);
+  }
+}

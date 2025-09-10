@@ -2,7 +2,7 @@
 Watch only what you like&#128077;  
 ***https://front42.github.io/angular-youtube-client***  
 
-<img src="https://rolling-scopes-school.github.io/front42-JSFE2021Q1/presentation/z/front42.jpg" alt="logo" width="107" height="40"/>  
+<img src="./src/assets/front42.jpg" alt="logo" width="107" height="40"/>  
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
 
