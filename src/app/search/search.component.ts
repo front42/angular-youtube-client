@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, WritableSignal, signal } from '@angular/core';
+import { Component, WritableSignal, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatRippleModule } from '@angular/material/core';
@@ -23,7 +23,6 @@ export class SearchComponent {
   protected searchInputValue: string = '';
   protected settings: boolean = false;
   protected sortBy: TypeOfSort = '';
-  @ViewChild('filterInput') protected filterInput!: ElementRef;
 
   constructor(private router: Router) {}
 
@@ -37,6 +36,7 @@ export class SearchComponent {
     sortSignal.set('');
     dateDescendingSignal.set(false);
     viewsDescendingSignal.set(false);
+    filterSignal.set('');
   }
 
   protected getItems(): void {

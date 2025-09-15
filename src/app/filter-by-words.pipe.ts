@@ -13,7 +13,6 @@ export class FilterByWordsPipe implements PipeTransform {
     return items.filter((item) => {
       const tags = item.snippet.tags.map((tag) => tag.toLowerCase());
       if (!tags.length) return false;
-
       return words.every((word) => tags.some((tag) => tag.includes(word)));
     });
   }

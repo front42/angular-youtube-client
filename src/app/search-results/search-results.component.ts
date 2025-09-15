@@ -17,9 +17,8 @@ export const itemsLengthSignal: WritableSignal<number> = signal(0);
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchResultsComponent {
-  private originalItems: IItem[] = [];
+  protected originalItems: IItem[] = [];
   protected items: IItem[] = [];
-
   protected filterQuery!: string;
 
   constructor(
@@ -44,8 +43,7 @@ export class SearchResultsComponent {
     });
 
     effect(() => {
-      this.filterQuery = filterSignal(); // после филтра не работает сортировка
-      this.sortItems();
+      this.filterQuery = filterSignal();
       this.cdr.markForCheck();
     });
   }
@@ -68,15 +66,15 @@ export class SearchResultsComponent {
     if (!sortBy) {
       this.items = [...this.originalItems];
     }
-    if (sortSignal() === 'date') {
-      dateDescendingSignal()
-        ? this.items.sort((a: IItem, b: IItem) => (a.snippet.publishedAt < b.snippet.publishedAt ? 1 : -1))
-        : this.items.sort((a: IItem, b: IItem) => (a.snippet.publishedAt > b.snippet.publishedAt ? 1 : -1));
+    if (sortBy === 'date') {
+      this.items = dateDescendingSignal()
+        ? [...this.items].sort((a: IItem, b: IItem) => (a.snippet.publishedAt < b.snippet.publishedAt ? 1 : -1))
+        : [...this.items].sort((a: IItem, b: IItem) => (a.snippet.publishedAt > b.snippet.publishedAt ? 1 : -1));
     }
-    if (sortSignal() === 'views') {
-      viewsDescendingSignal()
-        ? this.items.sort((a: IItem, b: IItem) => +b.statistics.viewCount - +a.statistics.viewCount)
-        : this.items.sort((a: IItem, b: IItem) => +a.statistics.viewCount - +b.statistics.viewCount);
+    if (sortBy === 'views') {
+      this.items = viewsDescendingSignal()
+        ? [...this.items].sort((a: IItem, b: IItem) => +b.statistics.viewCount - +a.statistics.viewCount)
+        : [...this.items].sort((a: IItem, b: IItem) => +a.statistics.viewCount - +b.statistics.viewCount);
     }
   }
 }
