@@ -21,6 +21,6 @@
     </div>
   </div>
   <h2>{{ item.snippet.title }}</h2>
-  <button class="more-btn" matRipple>more...</button>
-  <div class="age" appAgeColor></div>
+  <button class="more-btn" matRipple (click)="showDetails()">more...</button>
+  <div class="age" [appAgeColor]="item.snippet.publishedAt"></div>
 </div>
