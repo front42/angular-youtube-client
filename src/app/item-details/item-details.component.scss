@@ -1,0 +1,159 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 15px;
+  width: 1200px;
+  height: 461px;
+}
+
+.shadow-wrapper {
+  display: flex;
+  border-top-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+
+.back-btn {
+  width: 32px;
+  height: 32px;
+  background: url('../../assets/back-button-arrow.svg') no-repeat center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  box-shadow: none !important;
+  filter: brightness(1.11);
+}
+
+.info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 349px;
+  background-color: #e5e5e5;
+}
+
+h2 {
+  margin-top: 18px;
+  width: 312px;
+  max-height: 85px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  color: #000;
+  overflow: hidden;
+}
+
+.preview {
+  width: auto;
+  height: 100%;
+}
+
+.published {
+  width: 312px;
+  font-size: 10px;
+  color: #828282;
+  text-align: center;
+}
+
+.description {
+  width: 312px;
+  height: 262px;
+  color: #828282;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.description::-webkit-scrollbar {
+  display: none;
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 23px;
+  width: 222px;
+}
+
+.stat-point span {
+  vertical-align: middle;
+  color: #000;
+}
+
+.stat-point img {
+  vertical-align: sub;
+}
+
+.age {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+}
+
+@media screen and (max-width: 1236px) {
+  .container {
+    margin-top: 16px;
+    width: 95%;
+    height: auto;
+  }
+
+  .back-btn {
+    position: absolute;
+    top: 28px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    background-size: 13px;
+    border-radius: 5px;
+  }
+
+  .shadow-wrapper {
+    flex-direction: column;
+    border-top-left-radius: 5px;
+  }
+
+  .preview {
+    width: 100%;
+    height: auto;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  h2,
+  .published,
+  .description {
+    margin-top: 10px;
+    width: 91%;
+  }
+
+  .published {
+    font-size: 14px;
+  }
+
+  .description {
+    height: auto;
+    font-size: 16px;
+  }
+
+  .statistics {
+    margin: 10px 0 17px;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .container {
+    display: none;
+  }
+}

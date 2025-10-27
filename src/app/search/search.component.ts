@@ -1,7 +1,8 @@
-import { Component, WritableSignal, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, WritableSignal, signal } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatRippleModule } from '@angular/material/core';
+import { filter } from 'rxjs';
 
 import { itemsLengthSignal } from '../search-results/search-results.component';
 
@@ -19,8 +20,9 @@ export type TypeOfSort = '' | 'date' | 'views';
   styleUrl: './search.component.scss',
   imports: [MatRippleModule, FormsModule],
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   protected searchInputValue: string = '';
+  protected isMainPage: boolean = true;
   protected settings: boolean = false;
   protected sortBy: TypeOfSort = '';
 
@@ -40,6 +42,7 @@ export class SearchComponent {
   }
 
   protected getItems(): void {
+    this.goMain();
     searchSignal.set(this.searchInputValue);
   }
 
@@ -62,5 +65,11 @@ export class SearchComponent {
 
   protected goMain(): void {
     this.router.navigate(['']);
+  }
+
+  ngOnInit(): void {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => (this.isMainPage = this.router.url === '/'));
   }
 }

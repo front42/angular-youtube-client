@@ -1,0 +1,32 @@
+<div class="container">
+  @if (item) {
+    <button class="back-btn" matRipple [appAgeColor]="item.snippet.publishedAt" (click)="goMain()"></button>
+    <div class="shadow-wrapper" [appAgeColor]="item.snippet.publishedAt">
+      <img class="preview" src="{{ item.snippet.thumbnails.maxres.url }}" alt="Preview" />
+      <div class="info">
+        <h2>{{ item.snippet.title }}</h2>
+        <div class="published">{{ item.snippet.publishedAt | date: 'fullDate' }}</div>
+        <div class="description">{{ item.snippet.description }}</div>
+        <div class="statistics">
+          <div class="stat-point">
+            <img src="assets/views.svg" alt="Views" />
+            <span>{{ item.statistics.viewCount }}</span>
+          </div>
+          <div class="stat-point">
+            <img src="assets/likes.svg" alt="Likes" />
+            <span>{{ item.statistics.likeCount }}</span>
+          </div>
+          <div class="stat-point">
+            <img src="assets/dislikes.svg" alt="Dislikes" />
+            <span>{{ item.statistics.dislikeCount }}</span>
+          </div>
+          <div class="stat-point">
+            <img src="assets/comments.svg" alt="Comments" />
+            <span>{{ item.statistics.commentCount }}</span>
+          </div>
+        </div>
+        <div class="age" [appAgeColor]="item.snippet.publishedAt"></div>
+      </div>
+    </div>
+  }
+</div>

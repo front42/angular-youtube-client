@@ -72,20 +72,14 @@ h2 {
 }
 
 .more-btn:hover {
-  background-color: #5ea2ff;
+  filter: brightness(1.11);
   box-shadow: none;
 }
-
-// .more-btn:disabled {
-//   pointer-events: none;
-//   background-color: #b1b1b1;
-//   box-shadow: none;
-// }
 
 .age {
   position: absolute;
   bottom: 0;
-  width: inherit;
+  width: 100%;
   height: 5px;
 }
 

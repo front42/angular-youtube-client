@@ -23,4 +23,8 @@ export class DataService {
       }),
     );
   }
+
+  public getItemById(id: string): Observable<IItem | undefined> {
+    return this.getItems().pipe(map((items) => items.find((item) => item.id === id)));
+  }
 }

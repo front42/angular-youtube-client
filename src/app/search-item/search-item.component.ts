@@ -17,7 +17,6 @@ export class SearchItemComponent {
   constructor(private router: Router) {}
 
   showDetails(): void {
-    console.log(this.item);
     this.router.navigate(['/item', this.item.id]);
   }
 }
